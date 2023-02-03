@@ -338,6 +338,19 @@ You can do [the similar customization features in `./install.sh`](#theres-so-man
 like changing theme color (dark and light variant) and accent, GNOME Shell
 'Activities' icon, etc. related to GDM. Run `./tweaks.sh -h` to explore!
 
+
+#### Launcher Icon
+
+To be able to change the app launcher icon for an other one you have to :
+
+1. create a new one, ideally in svg format
+2. store it in place of : <*WhiteSur-gtk-theme*>/src/assets/gnome-shell/common-assets/view-app-grid.svg
+3. reinstall gtk theme, *for example*
+
+```bash
+./install.sh -t blue -c Dark -N glassy
+```
+
 ## Other recommended stuff
 ### WhiteSur Icon Theme
 <p align="center"> <a href="https://github.com/vinceliuice/WhiteSur-icon-theme">
