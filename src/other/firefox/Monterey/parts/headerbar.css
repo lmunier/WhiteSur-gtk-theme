@@ -13,7 +13,7 @@
 	box-shadow: var(--gnome-headerbar-box-shadow) !important;
 }
 :root[tabsintitlebar] #nav-bar:-moz-window-inactive {
-	box-shadow: var(--gnome-inactive-headerbar-box-shadow) !important;
+	box-shadow: var(--gnome-inactive-headerbar-box-shadow);
 }
 
 /* Headerbar buttons */
@@ -63,7 +63,7 @@ toolbar .toolbaritem-combined-buttons > .toolbarbutton-1 {
 #nav-bar toolbarbutton:not(#urlbar-zoom-button)[disabled] {
 	background: transparent !important;
 	border-color: var(--gnome-button-disabled-border-color) !important;
-	box-shadow: var(--gnome-button-disabled-box-shadow) !important;
+	box-shadow: none !important;
 	opacity: 1 !important;
 }
 

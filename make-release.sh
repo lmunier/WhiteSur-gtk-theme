@@ -2,7 +2,7 @@
 
 readonly REPO_DIR="$(dirname "$(readlink -m "${0}")")"
 readonly RELEASE_DIR="${REPO_DIR}/release"
-source "${REPO_DIR}/lib-install.sh"
+source "${REPO_DIR}/shell/lib-install.sh"
 
 # Customization, default values
 colors=("${COLOR_VARIANTS[@]}")
@@ -32,13 +32,13 @@ compress() {
   done
 }
 
-GNOME_VERSION="3-28"
-RELEASE_VERSION="-3-38"
-install && compress
-prompt -s "Compress Gnome${RELEASE_VERSION} version finished!"; echo
+#GNOME_VERSION="3-28"
+#RELEASE_VERSION="-3-38"
+#install && compress
+#prompt -s "Compress Gnome${RELEASE_VERSION} version finished!"; echo
 
-GNOME_VERSION="42-0"
-RELEASE_VERSION="-42-0"
+GNOME_VERSION="44-0"
+RELEASE_VERSION="-44-0"
 install && compress
 prompt -s "Compress Gnome${RELEASE_VERSION} version finished!"; echo
 

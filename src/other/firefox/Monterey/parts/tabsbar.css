@@ -18,13 +18,8 @@ tab > stack {
 	background-image: none !important;
 }
 
-.tabbrowser-tab:not([pinned]) {
-	margin: 2px 0 0 !important;
-}
-
-.tabbrowser-tab[pinned] {
-	margin-top: 2px !important;
-	margin-bottom: 0 !important;
+.tabbrowser-tab {
+	margin: 1px 0 0 0 !important;
 }
 
 .tabbrowser-tab:not([visuallyselected="true"], [multiselected]), .tabbrowser-tab:-moz-lwtheme {
@@ -62,6 +57,24 @@ tab > stack {
 .tab-background[selected=true]:-moz-window-inactive {
 	background: var(--gnome-inactive-tabbar-tab-active-background) !important;
 }
+
+/* Tab labels */
+tab .tab-label {
+	color: var(--gnome-tabbar-tab-color) !important;
+}
+tab:hover .tab-label {
+	color: var(--gnome-tabbar-tab-hover-color) !important;
+}
+tab[selected] .tab-label {
+	color: var(--gnome-tabbar-tab-active-color) !important;
+}
+tab:-moz-window-inactive .tab-label {
+	color: var(--gnome-inactive-tabbar-tab-color) !important;
+}
+tab[selected]:-moz-window-inactive .tab-label {
+	color: var(--gnome-inactive-tabbar-tab-active-color) !important;
+}
+
 
 .close-icon {
 	height: 16px !important;
@@ -117,6 +130,36 @@ tab > stack {
 	margin-top: 0 !important;
 }
 
+.tabbrowser-tab[soundplaying="true"] .tab-icon-image,
+.tabbrowser-tab[muted="true"] .tab-icon-image {
+	margin-top: 3px !important;
+	margin-left: 2px !important;
+}
+
+.tab-icon-overlay {
+	height: 24px !important;
+	width: 24px !important;
+	padding: 4px !important;
+	border-radius: 100px !important;
+}
+
+.tab-icon-overlay:not([crashed]):is([pinned], [sharing]) {
+	top: 0 !important;
+	inset-inline-end: 0 !important;
+}
+
+.tabbrowser-tab .tab-icon-overlay:not([crashed]):is([pinned], [sharing]) {
+	background-color: var(--gnome-tabbar-tab-background) !important;
+}
+
+.tabbrowser-tab[selected=true] .tab-icon-overlay:not([crashed]):is([pinned], [sharing]) {
+	background-color: var(--gnome-tabbar-tab-active-background) !important;
+}
+
+.tabbrowser-tab .tab-icon-overlay:not([crashed]):is([pinned], [sharing]):hover {
+	background-color: var(--gnome-tabbar-tab-hover-background) !important;
+}
+
 /* Remove blue line above tabs */
 .tab-line {
 	display: none;
@@ -127,32 +170,37 @@ tab > stack {
 }
 
 #TabsToolbar #alltabs-button {
-	padding: 0 0 !important;
+	padding: 0 !important;
 	visibility: collapse !important;
 }
 
 #TabsToolbar .toolbarbutton-1,
-#tabs-newtab-button, #TabsToolbar #new-tab-button {
-	margin: 2px 2px 0 !important;
+#TabsToolbar #tabs-newtab-button,
+#TabsToolbar #new-tab-button {
+	margin: 1px 2px 0 !important;
 	padding: 0 10px !important;
 	max-height: 32px !important;
 	min-height: 32px !important;
+	border-radius: 8px !important;
 }
 
 #TabsToolbar .toolbarbutton-1 image,
-#tabs-newtab-button image, #TabsToolbar #new-tab-button image {
+#TabsToolbar #tabs-newtab-button image,
+#TabsToolbar #new-tab-button image {
 	margin: 0 !important;
 	padding: 0 !important;
 	height: 16px !important;
 	width: 16px !important;
 }
 
-#TabsToolbar #scrollbutton-up, #TabsToolbar #scrollbutton-down {
+#TabsToolbar #scrollbutton-up,
+#TabsToolbar #scrollbutton-down {
 	max-height: 32px !important;
 	min-height: 32px !important;
 }
 
-#TabsToolbar #scrollbutton-up image, #TabsToolbar #scrollbutton-down image {
+#TabsToolbar #scrollbutton-up image,
+#TabsToolbar #scrollbutton-down image {
 	margin: 0 !important;
 	padding: 0 !important;
 	height: 16px !important;

@@ -14,8 +14,8 @@ toolbarspring {
 	max-width: 1000px !important;
 }
 
-#stop-reload-button + toolbarspring {
-	max-width: 1px !important;
+#nav-bar toolbarbutton + toolbarspring {
+	display: none !important;
 }
 
 #urlbar-container + toolbarspring {
@@ -80,6 +80,11 @@ toolbarspring {
 
 #urlbar[breakout][breakout-extend][open] #urlbar-background {
 	box-shadow: var(--gnome-urlbar-box-shadow) !important;
+}
+
+#urlbar-input {
+	text-align: center !important;
+	padding: 0 28px 0 0 !important;
 }
 
 /* URL bar results */

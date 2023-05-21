@@ -90,9 +90,21 @@ $flap_sidebar_size: 240px;
   }
 
   .nautilus-list-view.view {
-    listview.view > row.activatable {
-      border-radius: $bt_radius;
-      @extend %row_activatable;
+    padding: 0;
+    margin: 0;
+    border-spacing: 0;
+
+    listview.view {
+      padding: 0;
+      margin: 0;
+      border-spacing: 0;
+
+      > row.activatable {
+        padding: 0;
+        margin: 0;
+        border-radius: $bt_radius;
+        @extend %row_activatable;
+      }
     }
   }
 
@@ -405,4 +417,13 @@ menubutton.flat.popup.sources-button {
 
 .small .forecast-card {
   border-width: 1px 0;
+}
+
+//
+// Misc (other)
+//
+
+#desktopwindow.background {
+  background-color: transparent;
+  background-image: none;
 }
