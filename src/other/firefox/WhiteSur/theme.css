@@ -2,6 +2,8 @@
 @import "parts/buttons.css";
 @import "parts/entries.css";
 @import "parts/controls.css";
+@import "parts/headerbar-urlbar.css";
+@import "parts/headerbar-private-urlbar.css";
 @import "parts/headerbar.css";
 @import "parts/csd.css";
 @import "parts/titlebutton-light.css";
@@ -25,4 +27,9 @@
 	background-size: contain;
 	content: "Firefox WhiteSur theme";
 	padding: 10px 10px 10px 50px;
+}
+
+#customization-container {
+	background-color: var(--gnome-browser-before-load-background) !important;
+	color: var(--gnome-toolbar-color) !important;
 }

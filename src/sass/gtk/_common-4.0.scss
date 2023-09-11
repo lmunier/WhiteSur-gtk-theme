@@ -1959,8 +1959,20 @@ headerbar {
   }
 
   &.flat {
-    border: none;
-    background: none;
+    &, &:backdrop {
+      border: none;
+      background: none;
+    }
+
+    > windowhandle > box {
+      padding: 0 8px;
+  
+      &,
+      > box.start,
+      > box.end {
+        border-spacing: $container_padding;
+      }
+    }
 
     windowcontrols {
       padding: 0 $container_padding / 2;
@@ -2086,8 +2098,8 @@ headerbar {
 
   // Headerbar Switches
   switch {
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-top: ($headerbar_size - 24px) / 2;
+    margin-bottom: ($headerbar_size - 24px) / 2;
 
     &:backdrop { opacity: 0.75; }
   }
@@ -2159,6 +2171,13 @@ headerbar {
     &:backdrop {
       background-color: $header_bg_backdrop;
       border-color: if($variant=='light', lighten($header_border, 15%), darken($header_border, 3%));
+    }
+
+    &.flat {
+      &, &:backdrop {
+        border: none;
+        background: none;
+      }
     }
   }
 
