@@ -1,6 +1,6 @@
 /* Popovers/Menus */
 
-$popop_menuitem_radius: $po_radius - $base_padding;
+$popop_menuitem_radius: $po_radius - $base_padding - if($variant=='light', 0, 2px); // radius of the menu item, used in popovers
 
 //.the popover itself
 .popup-menu-boxpointer {
@@ -35,7 +35,7 @@ $popop_menuitem_radius: $po_radius - $base_padding;
       spacing: $base_spacing * 4;
       padding-top: 12px;
       padding-bottom: 12px;
-      border-radius: $popop_menuitem_radius * 2;
+      border-radius: $popop_menuitem_radius * 2 !important;
       margin: 0 12px;
 
       &:ltr { padding-right: 4em; padding-left: 0; }
@@ -51,7 +51,7 @@ $popop_menuitem_radius: $po_radius - $base_padding;
       margin: 0 6px;
 
       .popup-menu-item {
-        border-radius: $popop_menuitem_radius * 2;
+        border-radius: $popop_menuitem_radius * 2 !important;
       }
     }
 
@@ -69,7 +69,6 @@ $popop_menuitem_radius: $po_radius - $base_padding;
 .popup-menu {
   min-width: 12em;
   color: $alt_fg_color;
-  @include font(body-1);
 
   //.popup-status-menu-item { font-weight: normal;  color: pink; } //dunno what that is
   &.panel-menu {
@@ -94,11 +93,10 @@ $popop_menuitem_radius: $po_radius - $base_padding;
   padding: $base_padding;
   box-shadow: 0 5px 10px 0 rgba(black, 0.18);
   margin: 4px 12px 17px 12px;
-  background-color: $dialog_bg_color;
+  background-color: $popover_bg_color;
   border-radius: $po_radius;
   border: solid if($variant=='light', rgba(black, 0), rgba(black, 0.75));
   border-width: if($variant=='light', 0, 1px);
-  @include font(body-1);
 }
 
 .popup-menu-item {
@@ -128,7 +126,11 @@ $popop_menuitem_radius: $po_radius - $base_padding;
 
     &:active {
       color: $selected_fg_color !important;
-      background-color: mix($fg_color, $selected_bg_color, 5%) !important;
+      @if $shell_version == 'old' {
+        background-color: mix($fg_color, $selected_bg_color, 5%) !important;
+      } @else {
+        background-color: st-mix($fg_color, $selected_bg_color, 5%) !important;
+      }
     }
 
     &:insensitive { color: $disabled_fg_color !important; }
@@ -142,10 +144,20 @@ $popop_menuitem_radius: $po_radius - $base_padding;
 
   &:active, &.selected:active {
     color: $selected_fg_color !important;
-    background-color: mix($fg_color, $selected_bg_color, 5%) !important;
+    @if $shell_version == 'old' {
+      background-color: mix($fg_color, $selected_bg_color, 5%) !important;
+    } @else {
+      background-color: st-mix($fg_color, $selected_bg_color, 5%) !important;
+    }
   }
 
   &:insensitive { color: $disabled_fg_color !important; }
+
+  // add margin to switches in menu items
+  .toggle-switch {
+    &:ltr { margin-left: $base_margin; }
+    &:rtl { margin-right: $base_margin; }
+  }
 }
 
 .popup-sub-menu {
@@ -166,9 +178,18 @@ $popop_menuitem_radius: $po_radius - $base_padding;
 
     &:active {
       color: $selected_fg_color !important;
-      background-color: mix($fg_color, $selected_bg_color, 5%) !important;
+      @if $shell_version == 'old' {
+        background-color: mix($fg_color, $selected_bg_color, 5%) !important;
+      } @else {
+        background-color: st-mix($fg_color, $selected_bg_color, 5%) !important;
+      }
     }
   }
+}
+
+.popup-ornamented-menu-item {
+  &:ltr { padding-left: $base_padding; }
+  &:rtl { padding-right: $base_padding; }
 }
 
 .popup-inactive-menu-item { //all icons and other graphical elements
@@ -186,11 +207,8 @@ $popop_menuitem_radius: $po_radius - $base_padding;
 
 // container for radio and check boxes
 .popup-menu-ornament {
-  width: 1.2em;
-  text-align: center !important;
-
-  &:ltr { text-align: right; }
-  &:rtl { text-align: left; }
+  icon-size: $scalable_icon_size !important;
+  width: $scalable_icon_size;
 }
 
 // desktop background menu
